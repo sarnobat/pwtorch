@@ -24,7 +24,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 
 import com.sun.net.httpserver.HttpServer;
 
-
+// TODO: Add Pat McNeill and Flashback and livecast, Parks
 @Path("helloworld")
 public class HelloWorldResource {
 
@@ -64,6 +64,42 @@ public class HelloWorldResource {
 		return  Response.ok(getFeed("http://www.pwtorch.com/pwtorchvipaudio.xml", "Bruce Mitchell Audio", "foobar")).build();
 	}
 
+	
+        @Path("greg")
+        @GET
+        @Produces("text/plain")
+        public Response greg() {
+                return  Response.ok(getFeed("http://www.pwtorch.com/pwtorchvipaudio.xml", "arks", "aldwell")).build();
+        }
+
+        @Path("flashback")
+        @GET
+        @Produces("text/plain")
+        public Response flashback() {
+                return  Response.ok(getFeed("http://www.pwtorch.com/pwtorchvipaudio.xml", "lashback", "foobar")).build();
+        }
+
+        @Path("livecast")
+        @GET
+        @Produces("text/plain")
+        public Response livecast() {
+                return  Response.ok(getFeed("http://www.pwtorch.com/pwtorchvipaudio.xml", "ivecast", "foobar")).build();
+        }
+
+        @Path("pat")
+        @GET
+        @Produces("text/plain")
+        public Response patMcneill() {
+                return  Response.ok(getFeed("http://www.pwtorch.com/pwtorchvipaudio.xml", "eill", "foobar")).build();
+        }
+
+        @Path("powell")
+        @GET
+        @Produces("text/plain")
+        public Response jamesPowell() {
+                return  Response.ok(getFeed("http://www.pwtorch.com/pwtorchvipaudio.xml", "owell", "foobar")).build();
+        }
+
 	@Path("test")
 	@GET
 	@Produces("text/plain")
@@ -102,5 +138,3 @@ URI endpoint = new URI(BASE_URI);
 
 HttpServer server = JdkHttpServerFactory.createHttpServer(endpoint, rc);
 System.out.println("console v2.0 : Press Enter to stop the server. ");
-System.in.read();
-server.stop(0);
