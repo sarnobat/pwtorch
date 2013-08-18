@@ -78,7 +78,7 @@ public class HelloWorldResource {
 		SyndFeed wkHotlineFeed = (SyndFeed) feed.clone();
 		for (Object o : feed.getEntries()) {
 			SyndEntry entry = (SyndEntry) o;
-			if (entry.getTitle().contains(include))) {
+			if (entry.getTitle().contains(include)) {
 				if (!entry.getTitle().contains(exclude))) {
 					continue;
 				}
