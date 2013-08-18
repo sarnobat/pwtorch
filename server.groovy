@@ -79,7 +79,7 @@ public class HelloWorldResource {
 		for (Object o : feed.getEntries()) {
 			SyndEntry entry = (SyndEntry) o;
 			if (entry.getTitle().contains(include)) {
-				if (!entry.getTitle().contains(exclude))) {
+				if (!entry.getTitle().contains(exclude)) {
 					continue;
 				}
 			}
