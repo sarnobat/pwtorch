@@ -19,6 +19,8 @@ private static String getWadeKellerHotline() throws CloneNotSupportedException, 
 		SyndEntry entry = (SyndEntry) o;
 		if (!entry.getTitle().contains("otline")) {
 			wkHotlineFeed.getEntries().remove(o);
+		} else {
+			println(entry.getTitle());
 		}
 	}
 	ByteArrayOutputStream bao = new ByteArrayOutputStream();
@@ -28,5 +30,5 @@ private static String getWadeKellerHotline() throws CloneNotSupportedException, 
 	return new String(bao.toByteArray());
 }
 
-
-System.out.println(getWadeKellerHotline());
+getWadeKellerHotline();
+//System.out.println(getWadeKellerHotline());
