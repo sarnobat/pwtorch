@@ -50,6 +50,13 @@ public class HelloWorldResource {
 		return  Response.ok(getFeed("http://www.pwtorch.com/pwtorchvipaudio.xml", "Livecast Interview", "foobar")).build();
 	}
 
+	@Path("jc")
+	@GET
+	@Produces("text/plain")
+	public Response jamesCaldwell() {
+		return  Response.ok(getFeed("http://www.pwtorch.com/pwtorchvipaudio.xml", "Caldwell", "foobar")).build();
+	}
+
 	@Path("bm")
 	@GET
 	@Produces("text/plain")
