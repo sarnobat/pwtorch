@@ -36,26 +36,47 @@ public class HelloWorldResource {
 		return "Hello World";
 	}
 
+	@Path("wkh")
+	@GET
+	@Produces("text/plain")
+	public Response wkh() {
+		return  Response.ok(getFeed("http://www.pwtorch.com/pwtorchvipaudio.xml", "otline", "lashback")).build();
+	}
+
+	@Path("int")
+	@GET
+	@Produces("text/plain")
+	public Response interview() {
+		return  Response.ok(getFeed("http://www.pwtorch.com/pwtorchvipaudio.xml", "Livecast Interview", "foobar")).build();
+	}
+
+	@Path("bm")
+	@GET
+	@Produces("text/plain")
+	public Response bm() {
+		return  Response.ok(getFeed("http://www.pwtorch.com/pwtorchvipaudio.xml", "Bruce Mitchell Audio", "foobar")).build();
+	}
 
 	@Path("test")
 	@GET
 	@Produces("text/plain")
 	public Response test() {
-		return  Response.ok(getWadeKellerHotline()).build();
+		return  Response.ok(getFeed("http://www.pwtorch.com/pwtorchvipaudio.xml", "otline", "lashback")).build();
 	}
 	
-	private String getWadeKellerHotline() throws CloneNotSupportedException, IOException,
+	private String getFeed(String url, String include, String exclude) throws CloneNotSupportedException, IOException,
 		FeedException {
 		SyndFeed feed = new SyndFeedInput().build(new XmlReader(new URL(
-				"http://www.pwtorch.com/pwtorchvipaudio.xml")));
+				url)));
 		SyndFeed wkHotlineFeed = (SyndFeed) feed.clone();
 		for (Object o : feed.getEntries()) {
 			SyndEntry entry = (SyndEntry) o;
-			if (!entry.getTitle().contains("otline")) {
-				wkHotlineFeed.getEntries().remove(o);
-			} else {
-				println(entry.getTitle());
+			if (entry.getTitle().contains(include))) {
+				if (!entry.getTitle().contains(exclude))) {
+					continue;
+				}
 			}
+			wkHotlineFeed.getEntries().remove(o);
 		}
 		ByteArrayOutputStream bao = new ByteArrayOutputStream();
 		OutputStreamWriter outputStreamWriter = new OutputStreamWriter(bao);
