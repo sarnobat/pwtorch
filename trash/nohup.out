@@ -1,0 +1,14 @@
+Aug 18, 2013 12:39:15 AM org.glassfish.jersey.server.ApplicationHandler initialize
+INFO: Initiating Jersey application, version Jersey: 2.0 2013-05-14 20:07:34...
+console v2.0 : Press Enter to stop the server. 
+Caught: java.io.IOException: Bad file descriptor
+java.io.IOException: Bad file descriptor
+	at java_io_BufferedInputStream$read.call(Unknown Source)
+	at server.run(server.groovy:105)
+Aug 18, 2013 12:39:30 AM org.glassfish.jersey.server.ApplicationHandler initialize
+INFO: Initiating Jersey application, version Jersey: 2.0 2013-05-14 20:07:34...
+console v2.0 : Press Enter to stop the server. 
+Caught: java.io.IOException: Bad file descriptor
+java.io.IOException: Bad file descriptor
+	at java_io_BufferedInputStream$read.call(Unknown Source)
+	at server.run(server.groovy:105)
