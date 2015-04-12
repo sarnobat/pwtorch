@@ -89,6 +89,15 @@ public class Server {
 						"lashback", "foobar")).build();
 	}
 
+        @Path("playback")
+        @GET
+        @Produces("text/plain")
+        public Response playback() {
+                return Response.ok(
+                                getFeed("http://www.pwtorch.com/pwtorchvipaudio.xml",
+                                                "layback", "foobar")).build();
+        }
+
 	@Path("livecast")
 	@GET
 	@Produces("text/plain")
