@@ -147,10 +147,25 @@ public class Selecast {
 						"lashback")).build();
 	}
 
+	@Path("pwpodcast")
+	@GET
+        @Produces("text/plain")
+	public Response pwPodcast() {
+System.out.println("pwPodcast()");
+		return Response.ok(
+                                getFeed("http://www.pwtorch.com/site/feed/podcast/all","Podcast Podcast", "foobar")).build();
+	}
+
 	private static String getFeed(String url, String include, String exclude) {
 		SyndFeed feed;
 		try {
-			feed = new SyndFeedInput().build(new XmlReader(new URL(url)));
+System.out.println("1");
+URL u = new URL(url);
+System.out.println("2");
+XmlReader x =  new XmlReader(u);
+System.out.println("3 - the next line doesn't work, I don't have time to debug why.");
+			feed = new SyndFeedInput().build(x);
+System.out.println("4");
 
 			SyndFeed wkHotlineFeed = (SyndFeed) feed.clone();
 			for (Object o : feed.getEntries()) {
@@ -168,6 +183,7 @@ public class Selecast {
 			outputStreamWriter.close();
 			return new String(bao.toByteArray());
 		} catch (Exception e) {
+e.printStackTrace();
 			throw new RuntimeException(e);
 		}
 	}
@@ -181,7 +197,7 @@ System.out.println("Begin");
 			System.out.println("regex is not correct");
 		}
 
-		String BASE_URI = "http://localhost:4444/";
+		String BASE_URI = "http://localhost:4487/";
 
 		ResourceConfig rc = new ResourceConfig(Selecast.class);
 		URI endpoint = new URI(BASE_URI);
