@@ -173,7 +173,7 @@ public class Selecast {
 	}
 
 	public static void main(String[] args) throws URISyntaxException {
-
+System.out.println("Begin");
 		if ("VIP - 02/14 PWTorch Livecast w/Jonny Fairplay: Never-told stories on what went wrong in TNA ten years ago, Punk stories, Heenans big compliment"
 				.matches(".*Livecast( . VIP Aftershow)? w/.*")) {
 			System.out.println("regex is correct");
